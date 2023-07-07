@@ -1,2 +1,2 @@
-#!/ibn/bash
+#!/bin/bash
 chmod +x hello

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#bsah script displays its own PID
+
+ehco $$

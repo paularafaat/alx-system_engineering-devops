@@ -1,5 +1,4 @@
 #killmenow
-exec { 'killmenow':
-    commmand => 'pkill',
-    onlyif   => '/usr/bin/pgrep -f killmenow',
+exec { 'pkill -f killmenow':
+    path => ['/usr/bin', '/usr/local/bin', '/bin'],
     }

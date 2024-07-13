@@ -6,5 +6,5 @@ sudo apt-get install -y nginx
 sudo sed -i 's/listen [0-9]*;/listen 80;/' "/etc/nginx/sites-available/default"
 sudo sed -i 's/listen [::] [0-9]*;/listen [::] 80;/' "/etc/nginx/sites-available/default"
 echo "Hello World!" | sudo tee /var/www/html/index.html
-sudo sed -i '/location \/ {/a \\n    location /redirect_me { return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4; }\n' "/etc/nginx/sites-available/default"
+sudo sed -i 's/location \/ {/a \\n    location /redirect_me { return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4; }\n' "/etc/nginx/sites-available/default"
 sudo service nginx restart

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #script that configures a server  
-apt-get update  
-apt-get install -y nginx    
-rm /etc/nginx/sites-enabled/default  
+sudo apt-get update  
+sudo apt-get install -y nginx    
+sudo rm /etc/nginx/sites-enabled/default  
 cat <<EOL > /etc/nginx/sites-available/default  
 server {  
     listen 80;  
@@ -14,5 +14,5 @@ server {
     }  
 }  
 EOL  
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/  
-service nginx start
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/  
+sudo service nginx start

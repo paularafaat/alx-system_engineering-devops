@@ -1,9 +1,18 @@
 #!/usr/bin/env bash
-#script that configures a server
-sudo apt-get update
-sudo apt install -y nginx
-sudo service nginx enable
-sudo service nginx start
-sudo sed -i 's/listen [0-9]*;/listen 80;/' "/etc/nginx/sites-available/default"
-sudo sed -i 's/listen [::] [0-9]*;/listen [::] 80;/' "/etc/nginx/sites-available/default"
-sudo service nginx restart
+#script that configures a server  
+apt-get update  
+apt-get install -y nginx    
+rm /etc/nginx/sites-enabled/default  
+cat <<EOL > /etc/nginx/sites-available/default  
+server {  
+    listen 80;  
+    server_name _;  
+    
+    location / {  
+        root /var/www/html;  
+        index index.html index.htm;  
+    }  
+}  
+EOL  
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/  
+service nginx start

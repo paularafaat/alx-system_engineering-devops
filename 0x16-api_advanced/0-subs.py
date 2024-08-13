@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""subs module"""
 import requests
 
 
